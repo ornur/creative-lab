@@ -1,22 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lora, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Header from "@/components/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const lora = Lora({
+  variable: "--font-heading",
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const inter = Inter({
+  variable: "--font-sans",
+  subsets: ["latin", "cyrillic"],
 });
 
 export const metadata: Metadata = {
   title: "Creative Lab",
-  description: "Creative Lab",
+  description:
+    "Creative Lab — креатив индустриясындағы адамдар жиналатын тірі орта",
 };
 
 export default function RootLayout({
@@ -27,11 +30,11 @@ export default function RootLayout({
   return (
     <html
       lang="kk"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${lora.variable} ${inter.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="flex min-h-full flex-col bg-white dark:bg-black">
-        <ThemeProvider enableSystem={true} defaultTheme="dark">
+      <body className="flex min-h-full flex-col bg-black">
+        <ThemeProvider enableSystem={false} defaultTheme="dark">
           <Header />
           {children}
         </ThemeProvider>
