@@ -5,16 +5,31 @@ import BenefitsSection from "@/components/BenefitsSection";
 import SpeakersSection from "@/components/SpeakersSection";
 import PricingSection from "@/components/PricingSection";
 import ContactSection from "@/components/ContactSection";
+import dynamic from "next/dynamic";
+
+const Prism = dynamic(() => import("@/components/Prism"), { ssr: false });
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-white dark:bg-black">
-      <HeroSection />
-      <AboutSection />
-      <BenefitsSection />
-      <SpeakersSection />
-      <PricingSection />
-      <ContactSection />
-    </main>
+    <>
+      <Prism
+        animationType="rotate"
+        timeScale={0.5}
+        height={3.5}
+        baseWidth={5.5}
+        hueShift={0}
+        colorFrequency={1}
+        noise={0}
+        glow={1}
+      />
+      <main className="z-1 flex min-h-screen flex-col">
+        <HeroSection />
+        <AboutSection />
+        <BenefitsSection />
+        <SpeakersSection />
+        <PricingSection />
+        <ContactSection />
+      </main>
+    </>
   );
 }

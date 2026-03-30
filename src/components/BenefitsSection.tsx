@@ -1,130 +1,103 @@
+"use client";
 import { motion } from "motion/react";
+import {
+  GlassCard,
+  GlassCardContent,
+  GlassCardHeader,
+  GlassCardTitle,
+} from "@/components/ui/glass-card";
+import { Badge } from "@/components/ui/badge";
+
+const benefits = [
+  {
+    num: "01",
+    title: "Пайдалы инсайттар алады",
+    items: [
+      "Нарықта не жұмыс істеп жатыр, не істемей жатыр",
+      "Қазіргі трендтер емес, шын нәтиже беретін тәжірибе",
+    ],
+  },
+  {
+    num: "02",
+    title: "Нетворкинг",
+    items: [
+      "Сіз сияқты дамып жатқан адамдар",
+      "Болашақ серіктестер, клиенттер, команда",
+    ],
+  },
+  {
+    num: "03",
+    title: "Жаңа көзқарас қалыптастырады",
+    items: [
+      "Өз салаңызға басқа ракурстан қарауды үйренесіз",
+      "Креатив ойлау деңгейіңіз өседі",
+    ],
+  },
+  {
+    num: "04",
+    title: "Тікелей сұрақ қою мүмкіндігі",
+    items: [
+      "Спикерлермен еркін формат",
+      '"Сахна - сұрақ - жауап" емес, диалог',
+    ],
+  },
+];
 
 export default function BenefitsSection() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, x: -30 },
-    show: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-  };
-
   return (
-    <section
-      id="benefits"
-      className="relative w-full overflow-hidden bg-black px-6 py-24 text-white md:py-32"
-    >
-      {/* Abstract Background Element */}
-      <div
-        className="pointer-events-none absolute top-0 right-0 h-full w-full opacity-10 mix-blend-screen"
-        style={{
-          background:
-            "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.8) 0%, rgba(0,0,0,0) 70%)",
-        }}
-      ></div>
-
-      <div className="relative z-10 mx-auto max-w-6xl">
+    <section id="benefits" className="relative w-full px-6 py-24 md:py-32">
+      <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-16 md:mb-24"
         >
-          <h2 className="mb-4 text-4xl font-bold tracking-tighter text-[#e0e0e0] uppercase md:text-6xl">
-            Онда қандай пайда
-            <br className="max-md:hidden" /> аласыз?
+          <h2 className="font-heading mb-4 text-4xl font-bold tracking-tight text-white uppercase md:text-6xl">
+            Онда қандай пайда аласыз?
           </h2>
-          <p className="text-xl text-[#888] md:text-2xl">
+          <p className="text-xl text-white/50 md:text-2xl">
             Creative Lab-қа келген адам:
           </p>
         </motion.div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 gap-x-12 gap-y-16 md:grid-cols-2"
-        >
-          {/* Item 1 */}
-          <motion.div variants={item} className="group">
-            <h3 className="mb-4 flex items-center gap-3 text-2xl font-bold">
-              <span className="text-4xl text-[#333] transition-colors duration-500 group-hover:text-white">
-                01
-              </span>
-              Пайдалы инсайттар алады
-            </h3>
-            <ul className="space-y-3 border-l border-[#333] pl-12 text-[#a0a0a0] transition-colors duration-500 group-hover:border-white">
-              <li className="relative before:absolute before:-left-8 before:text-white before:content-['•']">
-                Нарықта не жұмыс істеп жатыр, не істемей жатыр
-              </li>
-              <li className="relative before:absolute before:-left-8 before:text-white before:content-['•']">
-                Қазіргі трендтер емес, шын нәтиже беретін тәжірибе
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Item 2 */}
-          <motion.div variants={item} className="group">
-            <h3 className="mb-4 flex items-center gap-3 text-2xl font-bold">
-              <span className="text-4xl text-[#333] transition-colors duration-500 group-hover:text-white">
-                02
-              </span>
-              Нетворкинг
-            </h3>
-            <ul className="space-y-3 border-l border-[#333] pl-12 text-[#a0a0a0] transition-colors duration-500 group-hover:border-white">
-              <li className="relative before:absolute before:-left-8 before:text-white before:content-['•']">
-                Сіз сияқты дамып жатқан адамдар
-              </li>
-              <li className="relative before:absolute before:-left-8 before:text-white before:content-['•']">
-                Болашақ серіктестер, клиенттер, команда
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Item 3 */}
-          <motion.div variants={item} className="group">
-            <h3 className="mb-4 flex items-center gap-3 text-2xl font-bold">
-              <span className="text-4xl text-[#333] transition-colors duration-500 group-hover:text-white">
-                03
-              </span>
-              Жаңа көзқарас қалыптастырады
-            </h3>
-            <ul className="space-y-3 border-l border-[#333] pl-12 text-[#a0a0a0] transition-colors duration-500 group-hover:border-white">
-              <li className="relative before:absolute before:-left-8 before:text-white before:content-['•']">
-                Өз салаңызға басқа ракурстан қарауды үйренесіз
-              </li>
-              <li className="relative before:absolute before:-left-8 before:text-white before:content-['•']">
-                Креатив ойлау деңгейіңіз өседі
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Item 4 */}
-          <motion.div variants={item} className="group">
-            <h3 className="mb-4 flex items-center gap-3 text-2xl font-bold">
-              <span className="text-4xl text-[#333] transition-colors duration-500 group-hover:text-white">
-                04
-              </span>
-              Тікелей сұрақ қою мүмкіндігі
-            </h3>
-            <ul className="space-y-3 border-l border-[#333] pl-12 text-[#a0a0a0] transition-colors duration-500 group-hover:border-white">
-              <li className="relative before:absolute before:-left-8 before:text-white before:content-['•']">
-                Спикерлермен еркін формат
-              </li>
-              <li className="relative before:absolute before:-left-8 before:text-white before:content-['•']">
-                “Сахна - сұрақ - жауап” емес, диалог
-              </li>
-            </ul>
-          </motion.div>
-        </motion.div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {benefits.map((benefit, index) => (
+            <motion.div
+              key={benefit.num}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+            >
+              <GlassCard className="group h-full">
+                <GlassCardHeader className="flex-row items-center gap-4 pb-4">
+                  <Badge
+                    variant="outline"
+                    className="font-heading border-white/10 px-3 py-2 text-3xl font-bold text-white/20 transition-colors duration-500 group-hover:text-white/60"
+                  >
+                    {benefit.num}
+                  </Badge>
+                  <GlassCardTitle className="text-xl font-semibold">
+                    {benefit.title}
+                  </GlassCardTitle>
+                </GlassCardHeader>
+                <GlassCardContent>
+                  <ul className="flex flex-col gap-2 border-l border-white/10 pl-4 transition-colors duration-500 group-hover:border-white/30">
+                    {benefit.items.map((item, i) => (
+                      <li
+                        key={i}
+                        className="text-sm text-white/60 md:text-base"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCardContent>
+              </GlassCard>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

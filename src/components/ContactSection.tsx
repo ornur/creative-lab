@@ -1,6 +1,18 @@
 "use client";
 import { motion } from "motion/react";
 import { useState } from "react";
+import {
+  GlassCard,
+  GlassCardContent,
+  GlassCardHeader,
+  GlassCardTitle,
+  GlassCardDescription,
+} from "@/components/ui/glass-card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -16,6 +28,35 @@ export default function ContactSection() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let val = e.target.value;
+
+    // Allow user to easily clear the input
+    if (!val || val === "+") {
+      setFormData((prev) => ({ ...prev, phone: "" }));
+      return;
+    }
+
+    let digits = val.replace(/\D/g, "");
+
+    if (!digits) {
+      setFormData((prev) => ({ ...prev, phone: "+7" }));
+      return;
+    }
+
+    // Normalize to always start with 7
+    if (digits.startsWith("8")) {
+      digits = "7" + digits.slice(1);
+    } else if (!digits.startsWith("7")) {
+      digits = "7" + digits;
+    }
+
+    // Limit to 11 digits (7 + 10 numbers)
+    digits = digits.slice(0, 11);
+
+    setFormData((prev) => ({ ...prev, phone: "+" + digits }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const text = `Сәлеметсіз бе! Менің атым ${formData.name}.\nEmail: ${formData.email}\nТелефон: ${formData.phone}\nХабарлама: ${formData.message}`;
@@ -25,30 +66,29 @@ export default function ContactSection() {
   };
 
   return (
-    <section
-      id="contact"
-      className="w-full border-t border-[#222] bg-[#050505] px-6 py-24 text-[#eee] md:py-32"
-    >
+    <section id="contact" className="relative w-full px-6 py-24 md:py-32">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-2 md:gap-24">
+        {/* Left: CTA text */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           className="flex flex-col"
         >
-          <div className="mb-8 inline-block h-1 w-20 bg-[#d1ff42]" />
-          <h2 className="mb-6 text-5xl font-bold tracking-tighter text-white uppercase md:text-7xl">
-            Өз орныңды
-            <br /> алып үлгер:
+          <div className="mb-8 h-1 w-20 rounded-full bg-[#d1ff42]" />
+          <h2 className="font-heading mb-6 text-5xl leading-tight font-bold tracking-tight text-white uppercase md:text-7xl">
+            Өз орныңды алып үлгер:
           </h2>
-          <p className="mb-12 text-xl font-light text-[#888] md:text-2xl">
+          <p className="mb-12 text-xl font-light text-white/50 md:text-2xl">
             Тіркелу формасын толтырып, Whatsapp арқылы орныңызды бекітіңіз.
           </p>
 
-          <div className="mt-auto flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#333] bg-[#111]">
+          <Separator className="mb-10 bg-white/10" />
+
+          <div className="flex items-center gap-4">
+            <div className="flex size-12 items-center justify-center rounded-full border border-white/10 bg-white/5">
               <svg
-                className="h-6 w-6 text-[#d1ff42]"
+                className="size-5 text-[#d1ff42]"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -56,90 +96,118 @@ export default function ContactSection() {
               </svg>
             </div>
             <div>
-              <p className="text-sm font-bold text-[#666] uppercase">Ватсап</p>
-              <p className="text-xl font-medium text-white">+7 700 728 0546</p>
+              <p className="text-xs font-bold tracking-widest text-white/30 uppercase">
+                Ватсап
+              </p>
+              <p className="text-xl font-semibold text-white">
+                +7 700 728 0546
+              </p>
             </div>
           </div>
         </motion.div>
 
+        {/* Right: Form */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          <form
-            className="rounded-3xl border border-[#222] bg-[#111] p-8 md:p-10"
-            onSubmit={handleSubmit}
-          >
-            <div className="space-y-6">
-              <div>
-                <label className="mb-2 block text-sm font-medium tracking-wide text-[#888] uppercase">
-                  Аты-жөні
-                </label>
-                <input
-                  required
-                  name="name"
-                  onChange={handleChange}
-                  value={formData.name}
-                  type="text"
-                  className="w-full rounded-xl border border-[#333] bg-black px-4 py-3 text-white transition-colors focus:border-white focus:outline-none"
-                  placeholder="Атыңыз"
-                />
-              </div>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div>
-                  <label className="mb-2 block text-sm font-medium tracking-wide text-[#888] uppercase">
-                    Email
-                  </label>
-                  <input
+          <GlassCard>
+            <GlassCardHeader>
+              <GlassCardTitle>Тіркелу</GlassCardTitle>
+              <GlassCardDescription>
+                Барлық өрістерді толтырып жіберіңіз
+              </GlassCardDescription>
+            </GlassCardHeader>
+            <GlassCardContent>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <div className="flex flex-col gap-2">
+                  <Label
+                    htmlFor="name"
+                    className="text-xs tracking-widest text-white/60 uppercase"
+                  >
+                    Аты-жөні
+                  </Label>
+                  <Input
+                    id="name"
                     required
-                    name="email"
+                    name="name"
                     onChange={handleChange}
-                    value={formData.email}
-                    type="email"
-                    className="w-full rounded-xl border border-[#333] bg-black px-4 py-3 text-white transition-colors focus:border-white focus:outline-none"
-                    placeholder="user@gmail.com"
+                    value={formData.name}
+                    placeholder="Атыңыз"
+                    className="border-white/10 bg-white/5 text-white placeholder:text-white/20 focus:border-white/40"
                   />
                 </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium tracking-wide text-[#888] uppercase">
-                    Телефон
-                  </label>
-                  <input
-                    required
-                    name="phone"
-                    onChange={handleChange}
-                    value={formData.phone}
-                    type="tel"
-                    className="w-full rounded-xl border border-[#333] bg-black px-4 py-3 text-white transition-colors focus:border-white focus:outline-none"
-                    placeholder="+7 700 000 00 00"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="mb-2 block text-sm font-medium tracking-wide text-[#888] uppercase">
-                  Хабарлама
-                </label>
-                <textarea
-                  required
-                  name="message"
-                  onChange={handleChange}
-                  value={formData.message}
-                  rows={4}
-                  className="w-full resize-none rounded-xl border border-[#333] bg-black px-4 py-3 text-white transition-colors focus:border-white focus:outline-none"
-                  placeholder="Сұрақтарыңыз болса..."
-                ></textarea>
-              </div>
 
-              <button
-                type="submit"
-                className="w-full rounded-xl bg-white py-4 font-bold tracking-wider text-black uppercase transition-colors duration-300 hover:bg-[#d1ff42]"
-              >
-                Жіберу
-              </button>
-            </div>
-          </form>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <div className="flex flex-col gap-2">
+                    <Label
+                      htmlFor="email"
+                      className="text-xs tracking-widest text-white/60 uppercase"
+                    >
+                      Email
+                    </Label>
+                    <Input
+                      id="email"
+                      required
+                      name="email"
+                      type="email"
+                      onChange={handleChange}
+                      value={formData.email}
+                      placeholder="user@gmail.com"
+                      className="border-white/10 bg-white/5 text-white placeholder:text-white/20 focus:border-white/40"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <Label
+                      htmlFor="phone"
+                      className="text-xs tracking-widest text-white/60 uppercase"
+                    >
+                      Телефон
+                    </Label>
+                    <Input
+                      id="phone"
+                      required
+                      name="phone"
+                      type="tel"
+                      onChange={handlePhoneChange}
+                      value={formData.phone}
+                      maxLength={12}
+                      placeholder="+77771115577"
+                      className="border-white/10 bg-white/5 text-white placeholder:text-white/20 focus:border-white/40"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <Label
+                    htmlFor="message"
+                    className="text-xs tracking-widest text-white/60 uppercase"
+                  >
+                    Хабарлама
+                  </Label>
+                  <Textarea
+                    id="message"
+                    required
+                    name="message"
+                    onChange={handleChange}
+                    value={formData.message}
+                    rows={4}
+                    placeholder="Сұрақтарыңыз болса..."
+                    className="resize-none border-white/10 bg-white/5 text-white placeholder:text-white/20 focus:border-white/40"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-white py-6 font-bold tracking-widest text-black uppercase transition-colors duration-300 hover:bg-[#d1ff42]"
+                >
+                  Жіберу
+                </Button>
+              </form>
+            </GlassCardContent>
+          </GlassCard>
         </motion.div>
       </div>
     </section>
