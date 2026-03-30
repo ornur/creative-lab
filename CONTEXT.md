@@ -1,5 +1,7 @@
+In the project use next.js, tailwindcss v4, shadcn ui, pnpm, motion(framer-motion)
 
 # Create a website for the creative lab
+
     Website should be modern and creative with dark mode and smooth animations and responsive for all devices language kazakh
     - Landing page:
         - Hero section
@@ -8,7 +10,7 @@
         - Schedule section
         - Pricing section
         - Contact section
-    - 
+    -
     - Images:
         - Hero section use hero.webp
         - Header component use logo.webp and add navigation links for the sections
@@ -20,8 +22,8 @@
         - Contanct section has form with fields: name, email, phone, message and submit button and handle to the Whatsapp number +7 700 728 0546
     -
 
-
 # Website text for the users to read and understand about the creative lab
+
 ```txt
 Creative Lab деген не?
 

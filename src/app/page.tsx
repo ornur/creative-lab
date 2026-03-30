@@ -1,23 +1,20 @@
 "use client";
-import Prism from "@/components/Prism";
-import { useIsMobile } from "@/hooks/use-mobile";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import BenefitsSection from "@/components/BenefitsSection";
+import SpeakersSection from "@/components/SpeakersSection";
+import PricingSection from "@/components/PricingSection";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
-  const mobile = useIsMobile();
-  const scale = mobile ? 1.1 : 2.8;
   return (
-    <div className="relative h-screen w-full dark:bg-black">
-      <Prism
-        animationType="rotate"
-        timeScale={0.5}
-        height={3.5}
-        baseWidth={5.5}
-        scale={scale}
-        hueShift={0}
-        colorFrequency={1}
-        noise={0}
-        glow={1}
-      />
-    </div>
+    <main className="flex min-h-screen flex-col bg-white dark:bg-black">
+      <HeroSection />
+      <AboutSection />
+      <BenefitsSection />
+      <SpeakersSection />
+      <PricingSection />
+      <ContactSection />
+    </main>
   );
 }
