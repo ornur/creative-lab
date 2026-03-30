@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { Renderer, Triangle, Program, Mesh } from "ogl";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 type PrismProps = {
   height?: number;
@@ -11,7 +12,6 @@ type PrismProps = {
   offset?: { x?: number; y?: number };
   noise?: number;
   transparent?: boolean;
-  scale?: number;
   hueShift?: number;
   colorFrequency?: number;
   hoverStrength?: number;
@@ -29,7 +29,6 @@ const Prism: React.FC<PrismProps> = ({
   offset = { x: 0, y: 0 },
   noise = 0.5,
   transparent = true,
-  scale = 3.6,
   hueShift = 0,
   colorFrequency = 1,
   hoverStrength = 2,
@@ -39,6 +38,8 @@ const Prism: React.FC<PrismProps> = ({
   timeScale = 0.5,
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const mobile = useIsMobile();
+  const scale = mobile ? 1.1 : 2.8;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -482,7 +483,12 @@ const Prism: React.FC<PrismProps> = ({
     suspendWhenOffscreen,
   ]);
 
-  return <div className="relative h-full w-full" ref={containerRef} />;
+  return (
+    <div
+      className="absolute -z-1 h-full w-full dark:bg-black"
+      ref={containerRef}
+    />
+  );
 };
 
 export default Prism;
