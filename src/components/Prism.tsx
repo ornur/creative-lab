@@ -63,7 +63,8 @@ const Prism: React.FC<PrismProps> = ({
     const HOVSTR = Math.max(0, hoverStrength || 1);
     const INERT = Math.max(0, Math.min(1, inertia || 0.12));
 
-    const isAndroid = typeof navigator !== "undefined" && /Android/i.test(navigator.userAgent);
+    const isAndroid =
+      typeof navigator !== "undefined" && /Android/i.test(navigator.userAgent);
     const dpr = Math.min(isAndroid ? 1 : 2, window.devicePixelRatio || 1);
     const renderer = new Renderer({
       dpr,
