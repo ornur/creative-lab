@@ -63,7 +63,8 @@ const Prism: React.FC<PrismProps> = ({
     const HOVSTR = Math.max(0, hoverStrength || 1);
     const INERT = Math.max(0, Math.min(1, inertia || 0.12));
 
-    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const isAndroid = typeof navigator !== "undefined" && /Android/i.test(navigator.userAgent);
+    const dpr = Math.min(isAndroid ? 1 : 2, window.devicePixelRatio || 1);
     const renderer = new Renderer({
       dpr,
       alpha: transparent,
@@ -177,16 +178,18 @@ const Prism: React.FC<PrismProps> = ({
           wob = mat2(c0, c1, c2, c0);
         }
 
-        const int STEPS = 100;
+        const int STEPS = ${isAndroid ? 50 : 100};
+        float stepMult = ${isAndroid ? "2.0" : "1.0"};
         for (int i = 0; i < STEPS; i++) {
           p = vec3(f, z);
           p.xz = p.xz * wob;
           p = uRot * p;
           vec3 q = p;
           q.y += centerShift;
-          d = 0.1 + 0.2 * abs(sdPyramidUpInv(q));
+          float d_base = 0.1 + 0.2 * abs(sdPyramidUpInv(q));
+          d = d_base * stepMult;
           z -= d;
-          o += (sin((p.y + z) * cf + vec4(0.0, 1.0, 2.0, 3.0)) + 1.0) / d;
+          o += ((sin((p.y + z) * cf + vec4(0.0, 1.0, 2.0, 3.0)) + 1.0) / d_base) * stepMult;
         }
 
         o = tanh4(o * o * (uGlow * uBloom) / 1e5);
