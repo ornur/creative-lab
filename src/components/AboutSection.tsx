@@ -7,7 +7,7 @@ import { XCircle, CheckCircle2 } from "lucide-react";
 const noItems = [
   { text: "Құрғақ теория жоқ", icon: XCircle },
   { text: '"Вода" ақпарат жоқ', icon: XCircle },
-  { text: "Бірнәрсе зорлап сату жоқ", icon: XCircle },
+  { text: "Бірнәрсе қинап сату жоқ", icon: XCircle },
 ];
 
 const yesItems = [
