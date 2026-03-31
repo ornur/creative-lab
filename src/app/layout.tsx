@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lora, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import { LazyMotion, domAnimation } from "motion/react";
 import Header from "@/components/Header";
 
 const lora = Lora({
@@ -35,8 +36,10 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col bg-black">
         <ThemeProvider enableSystem={false} defaultTheme="dark">
-          <Header />
-          {children}
+          <LazyMotion features={domAnimation}>
+            <Header />
+            {children}
+          </LazyMotion>
         </ThemeProvider>
       </body>
     </html>

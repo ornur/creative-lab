@@ -3,7 +3,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import * as motion from "motion/react-m";
+import { AnimatePresence } from "motion/react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);

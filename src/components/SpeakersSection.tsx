@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "motion/react";
+import * as motion from "motion/react-m";
 import TiltedCard from "@/components/TiltedCard";
 import { GlassCard, GlassCardContent } from "@/components/ui/glass-card";
 import { Separator } from "@/components/ui/separator";

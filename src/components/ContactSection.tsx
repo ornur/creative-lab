@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "motion/react";
+import * as motion from "motion/react-m";
 import { useState } from "react";
 import {
   GlassCard,
