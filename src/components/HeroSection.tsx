@@ -6,20 +6,25 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative z-1 flex min-h-svh flex-col items-center justify-center from-[#1f1b1a] to-transparent bg-linear-to-b text-center text-white"
+      // Added 'overflow-hidden' to prevent any scroll leakage from the motion div
+      className="relative z-1 flex min-h-screen flex-col items-center justify-center overflow-hidden bg-linear-to-b from-[#1f1b1a] to-transparent text-center text-white"
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.9, y: 50 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative h-[55svh] w-screen md:h-[70vh] md:w-[70vw] lg:h-[80vh] lg:w-[80vw]"
+        // Changed w-screen to 100% to be safer within flex contexts
+        className="relative h-[55vh] w-full md:h-[70vh] md:w-[70vw] lg:h-[80vh] lg:w-[80vw]"
       >
         <Image
           src="/hero.webp"
           alt="Creative Lab Hero"
           fill
-          className="object-cover rounded-lg md:object-contain"
+          // Added 'object-bottom' to ensure the heads aren't cut off on small screens
+          // and ensured object-cover is consistent or handled via aspect-ratio
+          className="object-cover object-bottom md:object-contain"
           priority
+          sizes="100vw"
         />
       </motion.div>
     </section>
