@@ -18,7 +18,7 @@ export default function HeroSection() {
           src="/hero.webp"
           alt="Creative Lab Hero"
           fill
-          className="object-cover object-center"
+          className="object-cover md:object-contain object-center"
           priority
         />
       </motion.div>
