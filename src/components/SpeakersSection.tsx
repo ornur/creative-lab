@@ -3,6 +3,7 @@ import * as motion from "motion/react-m";
 import TiltedCard from "@/components/TiltedCard";
 import { GlassCard, GlassCardContent } from "@/components/ui/glass-card";
 import { Separator } from "@/components/ui/separator";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const speakers = [
   {
@@ -49,13 +50,14 @@ const audience = [
 ];
 
 export default function SpeakersSection() {
+  const mobile = useIsMobile();
   return (
     <section id="speakers" className="relative w-full px-6 py-24 md:py-32">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-16 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <motion.div
-            initial={{ opacity: 0, x: -20 }} // Reduced distance (30 -> 20)
+            initial={{ opacity: 0, x: mobile ? 0 : -20 }} // Reduced distance (30 -> 20)
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }} // Trigger slightly before it hits view
             transition={{ duration: 0.5, ease: "easeOut" }}
@@ -65,10 +67,10 @@ export default function SpeakersSection() {
             </h2>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: mobile ? 0 : 30 }} // No horizontal animation on mobile for better readability
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.4 }}
             className="md:max-w-sm"
           >
             <p className="text-lg text-white/50">
