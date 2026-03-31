@@ -52,7 +52,7 @@ const audience = [
 export default function SpeakersSection() {
   const mobile = useIsMobile();
   return (
-    <section id="speakers" className="relative w-full px-6 py-24 md:py-32">
+    <section id="speakers" className="relative w-full px-6 py-24 md:py-32 overflow-x-hidden">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-16 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
