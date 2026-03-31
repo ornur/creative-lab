@@ -29,7 +29,7 @@ export default function ContactSection() {
   };
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let val = e.target.value;
+    const val = e.target.value;
 
     // Allow user to easily clear the input
     if (!val || val === "+") {

@@ -5,11 +5,36 @@ import { GlassCard, GlassCardContent } from "@/components/ui/glass-card";
 import { Separator } from "@/components/ui/separator";
 
 const speakers = [
-  { id: "person1", src: "/person1.webp", name: "Спикер 1" },
-  { id: "person2", src: "/person2.webp", name: "Спикер 2" },
-  { id: "person3", src: "/person3.webp", name: "Спикер 3" },
-  { id: "person4", src: "/person4.webp", name: "Спикер 4" },
-  { id: "person5", src: "/person5.webp", name: "Спикер 5" },
+  {
+    id: "person2",
+    src: "/person2.webp",
+    link: "https://www.instagram.com/abualiomirali",
+    name: "abualiomirali",
+  },
+  {
+    id: "person4",
+    src: "/person4.webp",
+    link: "https://www.instagram.com/akrkees",
+    name: "akrkees",
+  },
+  {
+    id: "person1",
+    src: "/person1.webp",
+    link: "https://www.instagram.com/alibi.alisherr",
+    name: "alibi.alisherr",
+  },
+  {
+    id: "person5",
+    src: "/person5.webp",
+    link: "https://www.instagram.com/aimanmenbirge",
+    name: "aimanmenbirge",
+  },
+  {
+    id: "person3",
+    src: "/person3.webp",
+    link: "https://www.instagram.com/esenbekkovich",
+    name: "esenbekkovich",
+  },
 ];
 
 const audience = [
@@ -30,9 +55,10 @@ export default function SpeakersSection() {
         {/* Header */}
         <div className="mb-16 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }} // Reduced distance (30 -> 20)
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }} // Trigger slightly before it hits view
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <h2 className="font-heading text-5xl font-bold tracking-tight text-white uppercase md:text-7xl">
               Спикерлер
@@ -57,25 +83,38 @@ export default function SpeakersSection() {
           {speakers.map((speaker, index) => (
             <motion.div
               key={speaker.id}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{
+                delay: index * 0.05, // Reduced delay for snappier feel
+                duration: 0.4,
+                ease: "circOut",
+              }}
+              // Optimization: GPU Acceleration
+              style={{ willChange: "transform, opacity" }}
               className="flex justify-center"
             >
-              <TiltedCard
-                imageSrc={speaker.src}
-                altText={speaker.name}
-                captionText={speaker.name}
-                containerHeight="320px"
-                containerWidth="100%"
-                imageHeight="320px"
-                imageWidth="100%"
-                rotateAmplitude={10}
-                scaleOnHover={1.05}
-                showMobileWarning={false}
-                showTooltip={true}
-              />
+              <a
+                href={speaker.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full"
+              >
+                <TiltedCard
+                  imageSrc={speaker.src}
+                  altText={speaker.name}
+                  captionText={speaker.name}
+                  containerHeight="320px"
+                  containerWidth="100%"
+                  imageHeight="320px"
+                  imageWidth="100%"
+                  rotateAmplitude={10}
+                  scaleOnHover={1.05}
+                  showMobileWarning={false}
+                  showTooltip={true}
+                />
+              </a>
             </motion.div>
           ))}
         </div>
@@ -84,9 +123,10 @@ export default function SpeakersSection() {
 
         {/* Target audience */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          style={{ willChange: "transform, opacity" }}
         >
           <GlassCard>
             <GlassCardContent className="p-8 md:p-14">

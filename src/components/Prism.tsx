@@ -485,7 +485,7 @@ const Prism: React.FC<PrismProps> = ({
 
   return (
     <div
-      className="fixed top-10 h-full w-full dark:bg-black"
+      className="sticky top-0 h-screen w-full lg:top-20 dark:bg-black"
       ref={containerRef}
     />
   );

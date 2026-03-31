@@ -24,9 +24,9 @@ export default function Header() {
         <Image
           src="/logo.webp"
           alt="Creative Lab"
-          width={120}
-          height={32}
-          className="h-8 w-auto dark:invert"
+          width={100}
+          height={24}
+          className="h-auto w-auto dark:invert"
           priority
         />
       </div>
