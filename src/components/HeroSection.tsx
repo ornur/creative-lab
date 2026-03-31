@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen w-full flex-col items-center justify-center bg-linear-to-b from-[#1f1b1a] from-100% to-transparent pt-20"
+      className="relative z-1 flex aspect-2/0.5 min-h-screen flex-col items-center justify-center rounded-full from-[#1f1b1a] from-50% to-transparent md:bg-radial-[at_50%_15%]"
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.9, y: 50 }}
@@ -18,7 +18,7 @@ export default function HeroSection() {
           src="/hero.webp"
           alt="Creative Lab Hero"
           fill
-          className="mask-t-from-90% mask-b-from-80% object-contain object-center md:mask-x-from-70% md:mask-x-to-90%"
+          className="object-contain object-center"
           priority
         />
       </motion.div>
