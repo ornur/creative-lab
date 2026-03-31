@@ -28,10 +28,10 @@ export default function AboutSection() {
           transition={{ duration: 0.8 }}
           className="mb-16 md:mb-24"
         >
-          <h2 className="font-heading mb-6 text-5xl font-bold text-[#f97736] uppercase md:text-7xl">
+          <h2 className="font-heading mb-6 text-4xl font-bold text-[#f97736] uppercase md:text-7xl">
             Creative Lab <span className="text-white/60 italic">деген не?</span>
           </h2>
-          <p className="max-w-3xl text-2xl leading-snug font-medium text-white/80 md:text-3xl">
+          <p className="max-w-3xl text-lg leading-snug font-medium text-white/80 md:text-3xl">
             Creative Lab — бұл классикалық &quot;мастер-класс&quot; емес. Бұл —
             креатив индустриясындағы адамдар жиналатын тірі орта (хаб).
           </p>
@@ -140,10 +140,10 @@ export default function AboutSection() {
         >
           <GlassCard>
             <GlassCardContent className="p-8 md:p-12">
-              <p className="font-heading mb-4 text-2xl leading-snug font-bold text-[#f97736] md:text-3xl">
+              <p className="font-heading mb-4 text-xl leading-snug font-bold text-[#f97736] md:text-3xl">
                 Тек тәжірибе, нақты кейстер және ашық әңгіме.
               </p>
-              <p className="text-lg text-white/70 md:text-xl">
+              <p className="text-base text-white/70 md:text-xl">
                 Creative Lab — идея алмасатын, ой кеңейтетін және өз ортаңды
                 табатын орын.
               </p>

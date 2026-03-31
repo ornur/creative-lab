@@ -59,10 +59,10 @@ export default function PricingSection() {
           viewport={{ once: true }}
           className="mb-16 text-center md:mb-20"
         >
-          <h2 className="font-heading mb-4 text-4xl font-bold tracking-tight text-[#f97736] uppercase md:text-6xl">
+          <h2 className="font-heading mb-4 text-3xl font-bold tracking-tight text-[#f97736] uppercase md:text-6xl">
             Бағалар
           </h2>
-          <p className="text-lg tracking-widest text-white/60 md:text-xl">
+          <p className="text-base tracking-widest text-white/60 md:text-xl">
             Инвестицияңыздың құны — өзіңізге деген секіріс
           </p>
         </motion.div>
@@ -94,7 +94,7 @@ export default function PricingSection() {
 
           <GlassCard className="relative border-[#f97736]/30 hover:border-[#f97736]/50">
             <GlassCardHeader className="pt-10 pb-2 text-center">
-              <GlassCardTitle className="font-heading text-2xl tracking-widest uppercase">
+              <GlassCardTitle className="font-heading text-xl tracking-widest uppercase">
                 Қатысу билеті
               </GlassCardTitle>
               <GlassCardDescription className="text-base text-white/60">
@@ -104,13 +104,13 @@ export default function PricingSection() {
 
             <GlassCardContent className="flex flex-col items-center gap-3 py-8">
               {/* Old price — crossed out */}
-              <span className="text-2xl font-bold text-white/40 line-through">
+              <span className="text-xl font-bold text-white/40 line-through">
                 19 990 ₸
               </span>
 
               {/* New price: CountUp with pure CSS gradient — no JS conflict */}
               <div className="flex items-end gap-2">
-                <span className="price-brand font-heading text-7xl leading-none font-bold tabular-nums md:text-8xl">
+                <span className="price-brand font-heading text-5xl leading-none font-bold tabular-nums md:text-8xl">
                   <CountUp
                     from={0}
                     to={9990}
@@ -119,7 +119,7 @@ export default function PricingSection() {
                     delay={0.3}
                   />
                 </span>
-                <span className="price-brand pb-1 text-3xl font-bold">₸</span>
+                <span className="price-brand pb-1 text-2xl font-bold">₸</span>
               </div>
 
               <p className="mt-1 text-xs tracking-widest text-white/30 uppercase">
