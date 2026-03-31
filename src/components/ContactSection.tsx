@@ -75,8 +75,8 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="flex flex-col"
         >
-          <div className="mb-8 h-1 w-20 rounded-full bg-[#d1ff42]" />
-          <h2 className="font-heading mb-6 text-5xl leading-tight font-bold tracking-tight text-white uppercase md:text-7xl">
+          <div className="mb-8 h-1 w-20 rounded-full bg-[#f97736]" />
+          <h2 className="font-heading mb-6 text-5xl leading-tight font-bold tracking-tight text-[#f97736] uppercase md:text-7xl">
             Өз орныңды алып үлгер:
           </h2>
           <p className="mb-12 text-xl font-light text-white/50 md:text-2xl">
@@ -88,7 +88,7 @@ export default function ContactSection() {
           <div className="flex items-center gap-4">
             <div className="flex size-12 items-center justify-center rounded-full border border-white/10 bg-white/5">
               <svg
-                className="size-5 text-[#d1ff42]"
+                className="size-5 text-[#f97736]"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -201,7 +201,7 @@ export default function ContactSection() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-white py-6 font-bold tracking-widest text-black uppercase transition-colors duration-300 hover:bg-[#d1ff42]"
+                  className="w-full bg-[#f97736] py-6 font-bold tracking-widest text-[#1f1b1a] uppercase transition-colors duration-300 hover:bg-white"
                 >
                   Жіберу
                 </Button>

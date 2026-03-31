@@ -60,7 +60,7 @@ export default function SpeakersSection() {
             viewport={{ once: true, margin: "-50px" }} // Trigger slightly before it hits view
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <h2 className="font-heading text-5xl font-bold tracking-tight text-white uppercase md:text-7xl">
+            <h2 className="font-heading text-5xl font-bold tracking-tight text-[#f97736] uppercase md:text-7xl">
               Спикерлер
             </h2>
           </motion.div>
@@ -132,7 +132,7 @@ export default function SpeakersSection() {
             <GlassCardContent className="p-8 md:p-14">
               <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2">
                 <div>
-                  <h2 className="font-heading mb-4 text-4xl font-bold tracking-tight text-white uppercase md:text-5xl">
+                  <h2 className="font-heading mb-4 text-4xl font-bold tracking-tight text-[#f97736] uppercase md:text-5xl">
                     Кімдерге арналған?
                   </h2>
                   <p className="text-xl font-light text-white/60">

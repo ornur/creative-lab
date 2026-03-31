@@ -28,7 +28,7 @@ export default function AboutSection() {
           transition={{ duration: 0.8 }}
           className="mb-16 md:mb-24"
         >
-          <h2 className="font-heading mb-6 text-5xl font-bold tracking-tight text-white uppercase md:text-7xl">
+          <h2 className="font-heading mb-6 text-5xl font-bold tracking-tight text-[#f97736] uppercase md:text-7xl">
             Creative Lab <span className="text-white/60 italic">деген не?</span>
           </h2>
           <p className="max-w-3xl text-2xl leading-snug font-medium text-white/80 md:text-3xl">
@@ -44,7 +44,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-6 text-xs font-bold tracking-[0.2em] text-white/60 uppercase"
+            className="mb-6 text-xs font-bold tracking-[0.2em] text-[#f97736]/80 uppercase"
           >
             Бізде жоқ
           </motion.h3>
@@ -62,13 +62,13 @@ export default function AboutSection() {
                 }}
               >
                 {/* Red card with left accent border + subtle bleed */}
-                <div className="group relative overflow-hidden rounded-2xl border border-red-500/25 bg-red-500/8 backdrop-blur-xl transition-all duration-300 hover:border-red-500/45 hover:bg-red-500/12">
+                <div className="group relative overflow-hidden rounded-2xl border border-white/12 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/8">
                   {/* Left accent stripe */}
-                  <div className="absolute top-0 left-0 h-full w-[3px] rounded-l-2xl bg-linear-to-b from-red-400/80 via-red-500/50 to-transparent" />
+                  <div className="absolute top-0 left-0 h-full w-[3px] rounded-l-2xl bg-linear-to-b from-white/70 via-white/35 to-transparent" />
                   <div className="flex items-center gap-4 p-5 pl-6">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-500/15 ring-1 ring-red-500/30 transition-colors group-hover:bg-red-500/25">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20 transition-colors group-hover:bg-white/15">
                       <item.icon
-                        className="h-4 w-4 text-red-400"
+                        className="h-4 w-4 text-white"
                         strokeWidth={2.5}
                       />
                     </div>
@@ -91,7 +91,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-6 text-xs font-bold tracking-[0.2em] text-white/60 uppercase"
+            className="mb-6 text-xs font-bold tracking-[0.2em] text-[#f97736]/80 uppercase"
           >
             Бізде бар
           </motion.h3>
@@ -109,13 +109,13 @@ export default function AboutSection() {
                 }}
               >
                 {/* Green card — mirrors red card structure */}
-                <div className="group relative overflow-hidden rounded-2xl border border-emerald-500/25 bg-emerald-500/8 backdrop-blur-xl transition-all duration-300 hover:border-emerald-500/45 hover:bg-emerald-500/12">
+                <div className="group relative overflow-hidden rounded-2xl border border-[#f97736]/30 bg-[#f97736]/10 backdrop-blur-xl transition-all duration-300 hover:border-[#f97736]/45 hover:bg-[#f97736]/16">
                   {/* Left accent stripe */}
-                  <div className="absolute top-0 left-0 h-full w-[3px] rounded-l-2xl bg-linear-to-b from-emerald-400/80 via-emerald-500/50 to-transparent" />
+                  <div className="absolute top-0 left-0 h-full w-[3px] rounded-l-2xl bg-linear-to-b from-[#f97736]/90 via-[#f97736]/55 to-transparent" />
                   <div className="flex items-center gap-4 p-5 pl-6">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 ring-1 ring-emerald-500/30 transition-colors group-hover:bg-emerald-500/25">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#f97736]/20 ring-1 ring-[#f97736]/35 transition-colors group-hover:bg-[#f97736]/30">
                       <CheckCircle2
-                        className="h-4 w-4 text-emerald-400"
+                        className="h-4 w-4 text-[#f97736]"
                         strokeWidth={2.5}
                       />
                     </div>
@@ -140,7 +140,7 @@ export default function AboutSection() {
         >
           <GlassCard>
             <GlassCardContent className="p-8 md:p-12">
-              <p className="font-heading mb-4 text-2xl leading-snug font-bold text-white md:text-3xl">
+              <p className="font-heading mb-4 text-2xl leading-snug font-bold text-[#f97736] md:text-3xl">
                 Тек тәжірибе, нақты кейстер және ашық әңгіме.
               </p>
               <p className="text-lg text-white/70 md:text-xl">

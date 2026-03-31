@@ -34,7 +34,7 @@ export default function RootLayout({
       className={`${lora.variable} ${inter.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="flex min-h-full flex-col bg-black">
+      <body className="bg-background text-foreground flex min-h-full flex-col">
         <ThemeProvider enableSystem={false} defaultTheme="dark">
           <LazyMotion features={domAnimation}>
             <Header />

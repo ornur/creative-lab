@@ -11,7 +11,7 @@ const Prism = dynamic(() => import("@/components/Prism"), { ssr: false });
 
 export default function Home() {
   return (
-    <main className="z-1 flex min-h-screen flex-col">
+    <main className="z-1 flex min-h-screen max-w-full flex-col">
       <HeroSection />
       <Prism
         animationType="rotate"

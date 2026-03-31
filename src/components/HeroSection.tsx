@@ -14,7 +14,7 @@ export default function HeroSection() {
         transition={{ duration: 1, ease: "easeOut" }}
         className="relative h-[60vh] w-screen md:h-[70vh] md:w-[70vw] lg:h-[80vh] lg:w-[80vw]"
       >
-        <div className="absolute top-12.5 right-28 z-10 mb-8 rounded-sm border border-[#f97736] bg-black/20 px-4 backdrop-blur-md md:top-17 md:right-155 md:rounded-md">
+        <div className="absolute top-[9%] right-[25%] z-10 mb-8 rounded-sm border border-[#f97736] bg-[#1f1b1a]/30 px-4 backdrop-blur-md md:top-[8.5%] md:right-[40%] md:rounded-md">
           <p className="text-[0.81rem] font-semibold tracking-[0.2em] text-[#f97736] uppercase md:text-lg">
             18 Сәуір
           </p>

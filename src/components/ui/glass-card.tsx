@@ -19,12 +19,12 @@ const GlassCard = React.forwardRef<
     className={cn(
       "relative overflow-hidden rounded-3xl",
       // Dark fill layer + subtle frost effect for legibility
-      "bg-black/75 backdrop-blur-2xl",
+      "bg-[#1f1b1a]/80 backdrop-blur-2xl",
       "border border-white/15",
       // Outer glow + inner highlight ring
-      "shadow-[0_8px_40px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.08)]",
+      "shadow-[0_8px_40px_rgba(31,27,26,0.6),inset_0_1px_0_rgba(255,255,255,0.08)]",
       "transition-all duration-500",
-      "hover:border-white/25 hover:bg-black/60 hover:shadow-[0_16px_56px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.12)]",
+      "hover:border-white/25 hover:bg-[#1f1b1a]/70 hover:shadow-[0_16px_56px_rgba(31,27,26,0.7),inset_0_1px_0_rgba(255,255,255,0.12)]",
       className,
     )}
     {...props}
@@ -46,7 +46,10 @@ const GlassCardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CardTitle
     ref={ref}
-    className={cn("font-heading text-xl tracking-tight text-white", className)}
+    className={cn(
+      "font-heading text-xl tracking-tight text-[#f97736]",
+      className,
+    )}
     {...props}
   />
 ));
