@@ -46,10 +46,7 @@ const GlassCardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CardTitle
     ref={ref}
-    className={cn(
-      "font-heading text-xl tracking-tight text-[#f97736]",
-      className,
-    )}
+    className={cn("font-heading text-xl text-[#f97736]", className)}
     {...props}
   />
 ));

@@ -53,7 +53,7 @@ export default function BenefitsSection() {
           viewport={{ once: true }}
           className="mb-16 md:mb-24"
         >
-          <h2 className="font-heading mb-4 text-4xl font-bold tracking-tight text-[#f97736] uppercase md:text-6xl">
+          <h2 className="font-heading mb-4 text-4xl font-bold text-[#f97736] uppercase md:text-6xl">
             Онда қандай пайда аласыз?
           </h2>
           <p className="text-xl text-white/50 md:text-2xl">

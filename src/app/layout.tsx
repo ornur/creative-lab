@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Lora, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { LazyMotion, domAnimation } from "motion/react";
 import Header from "@/components/Header";
 
-const lora = Lora({
-  variable: "--font-heading",
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-});
-
-const inter = Inter({
+const benzin = localFont({
+  src: [
+    { path: "./font/Benzin-Regular.ttf", weight: "400", style: "normal" },
+    { path: "./font/Benzin-Medium.ttf", weight: "500", style: "normal" },
+    { path: "./font/Benzin-Semibold.ttf", weight: "600", style: "normal" },
+    { path: "./font/Benzin-Bold.ttf", weight: "700", style: "normal" },
+    { path: "./font/Benzin-ExtraBold.ttf", weight: "800", style: "normal" },
+  ],
   variable: "--font-sans",
-  subsets: ["latin", "cyrillic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="kk"
-      className={`${lora.variable} ${inter.variable} h-full antialiased`}
+      className={`${benzin.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="bg-background text-foreground flex min-h-full flex-col">

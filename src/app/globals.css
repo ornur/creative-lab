@@ -50,6 +50,7 @@
 }
 
 :root {
+  --font-heading: var(--font-sans);
   --background: #1f1b1a;
   --foreground: #ffffff;
   --card: #1f1b1a;
@@ -123,7 +124,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground leading-relaxed font-normal tracking-normal;
   }
   html {
     @apply font-sans;
@@ -131,8 +132,11 @@
   h1,
   h2,
   h3,
-  h4 {
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-heading);
+    @apply leading-relaxed font-bold;
   }
   html {
     scroll-behavior: smooth;

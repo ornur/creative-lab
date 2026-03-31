@@ -76,7 +76,7 @@ export default function ContactSection() {
           className="flex flex-col"
         >
           <div className="mb-8 h-1 w-20 rounded-full bg-[#f97736]" />
-          <h2 className="font-heading mb-6 text-5xl leading-tight font-bold tracking-tight text-[#f97736] uppercase md:text-7xl">
+          <h2 className="font-heading mb-6 text-4xl leading-tight font-bold text-[#f97736] uppercase md:text-5xl">
             Өз орныңды алып үлгер:
           </h2>
           <p className="mb-12 text-xl font-light text-white/50 md:text-2xl">

@@ -28,7 +28,7 @@ export default function AboutSection() {
           transition={{ duration: 0.8 }}
           className="mb-16 md:mb-24"
         >
-          <h2 className="font-heading mb-6 text-5xl font-bold tracking-tight text-[#f97736] uppercase md:text-7xl">
+          <h2 className="font-heading mb-6 text-5xl font-bold text-[#f97736] uppercase md:text-7xl">
             Creative Lab <span className="text-white/60 italic">деген не?</span>
           </h2>
           <p className="max-w-3xl text-2xl leading-snug font-medium text-white/80 md:text-3xl">
@@ -44,7 +44,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-6 text-xs font-bold tracking-[0.2em] text-[#f97736]/80 uppercase"
+            className="mb-6 text-xs font-bold tracking-widest text-[#f97736]/80 uppercase"
           >
             Бізде жоқ
           </motion.h3>
@@ -91,7 +91,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-6 text-xs font-bold tracking-[0.2em] text-[#f97736]/80 uppercase"
+            className="mb-6 text-xs font-bold tracking-widest text-[#f97736]/80 uppercase"
           >
             Бізде бар
           </motion.h3>

@@ -62,7 +62,7 @@ export default function PricingSection() {
           <h2 className="font-heading mb-4 text-4xl font-bold tracking-tight text-[#f97736] uppercase md:text-6xl">
             Бағалар
           </h2>
-          <p className="text-lg text-white/60 md:text-xl">
+          <p className="text-lg tracking-widest text-white/60 md:text-xl">
             Инвестицияңыздың құны — өзіңізге деген секіріс
           </p>
         </motion.div>

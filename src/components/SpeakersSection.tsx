@@ -140,7 +140,7 @@ export default function SpeakersSection() {
                   </p>
                 </div>
 
-                <ul className="flex flex-col gap-4 text-lg font-medium tracking-tight md:text-xl">
+                <ul className="flex flex-col gap-4 text-lg font-medium md:text-xl">
                   {audience.map((item, i) => (
                     <li
                       key={i}
