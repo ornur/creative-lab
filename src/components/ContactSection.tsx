@@ -61,7 +61,7 @@ export default function ContactSection() {
     e.preventDefault();
     const text = `Сәлеметсіз бе! Менің атым ${formData.name}.\nEmail: ${formData.email}\nТелефон: ${formData.phone}\nХабарлама: ${formData.message}`;
     const encodedText = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/77007280546?text=${encodedText}`;
+    const whatsappUrl = `https://wa.me/77778716409?text=${encodedText}`;
     window.open(whatsappUrl, "_blank");
   };
 
@@ -97,10 +97,10 @@ export default function ContactSection() {
             </div>
             <div>
               <p className="text-xs font-bold tracking-widest text-white/30 uppercase">
-                Ватсап
+                Whatsapp
               </p>
               <p className="text-xl font-semibold text-white">
-                +7 700 728 0546
+                +7 777 871 64 09
               </p>
             </div>
           </div>
