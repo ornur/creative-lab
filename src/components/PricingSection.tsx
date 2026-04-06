@@ -89,7 +89,7 @@ export default function PricingSection() {
             className="absolute -top-4 -right-4 z-10 rotate-12 border-0 px-3 py-1 text-sm font-bold shadow-lg md:-top-5 md:-right-5"
             style={{ background: "#f97736", color: "#1f1b1a" }}
           >
-            15 Сәуірге дейін!
+            10 Сәуірге дейін!
           </Badge>
 
           <GlassCard className="relative border-[#f97736]/30 hover:border-[#f97736]/50">
