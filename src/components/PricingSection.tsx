@@ -85,12 +85,12 @@ export default function PricingSection() {
           />
 
           {/* Badge OUTSIDE card so overflow:hidden doesn't clip it */}
-          <Badge
+          {/* <Badge
             className="absolute -top-4 -right-4 z-10 rotate-12 border-0 px-3 py-1 text-sm font-bold shadow-lg md:-top-5 md:-right-5"
             style={{ background: "#f97736", color: "#1f1b1a" }}
           >
             10 Сәуірге дейін!
-          </Badge>
+          </Badge> */}
 
           <GlassCard className="relative border-[#f97736]/30 hover:border-[#f97736]/50">
             <GlassCardHeader className="pt-10 pb-2 text-center">
@@ -104,27 +104,27 @@ export default function PricingSection() {
 
             <GlassCardContent className="flex flex-col items-center gap-3 py-8">
               {/* Old price — crossed out */}
-              <span className="text-xl font-bold text-white/40 line-through">
+              {/* <span className="text-xl font-bold text-white/40 line-through">
                 19 990 ₸
-              </span>
+              </span> */}
 
               {/* New price: CountUp with pure CSS gradient — no JS conflict */}
               <div className="flex items-end gap-2">
-                <span className="price-brand font-heading text-5xl leading-none font-bold tabular-nums md:text-8xl">
+                <span className="price-brand font-heading text-4xl leading-none font-bold tabular-nums md:text-7xl">
                   <CountUp
-                    from={0}
-                    to={9990}
+                    from={10000}
+                    to={19990}
                     duration={0.3}
                     separator=" "
                     delay={0.3}
                   />
                 </span>
-                <span className="price-brand pb-1 text-2xl font-bold">₸</span>
+                <span className="price-brand md:pb-1 text-2xl font-bold">₸</span>
               </div>
 
-              <p className="mt-1 text-xs tracking-widest text-white/30 uppercase">
+              {/* <p className="mt-1 text-xs tracking-widest text-white/30 uppercase">
                 Ерте тіркелу бағасы
-              </p>
+              </p> */}
             </GlassCardContent>
 
             <Separator className="bg-white/8" />
