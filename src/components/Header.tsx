@@ -48,7 +48,7 @@ export default function Header() {
       </nav>
 
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2 text-[14px] font-semibold tracking-wide text-white/70 md:gap-3 md:text-xs">
+        <div className="flex items-center gap-2 text-xs font-semibold tracking-wide text-white/70 md:gap-3 md:text-xs">
           <span className="rounded-full border border-white/15 bg-white/5 px-2.5 py-1 md:px-3">
             14 Маусым
           </span>
