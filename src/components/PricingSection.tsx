@@ -1,7 +1,6 @@
 "use client";
 import * as motion from "motion/react-m";
 import { CalendarDays, Clock, MapPin } from "lucide-react";
-import CountUp from "@/components/CountUp";
 import {
   GlassCard,
   GlassCardContent,
@@ -141,13 +140,7 @@ export default function PricingSection() {
                   </p>
                   <div className="flex items-end justify-center gap-2 md:justify-end">
                     <span className="price-brand text-6xl leading-none font-bold tabular-nums md:text-7xl">
-                      <CountUp
-                        from={8000}
-                        to={parseInt(date)}
-                        duration={1.3}
-                        separator=" "
-                        delay={0.6}
-                      />
+                      {date}
                     </span>
                     <span className="price-brand pb-1 text-2xl font-bold">
                       ₸
