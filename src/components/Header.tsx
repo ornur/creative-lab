@@ -27,6 +27,7 @@ export default function Header() {
           alt="Creative Lab"
           width={100}
           height={24}
+          fetchPriority="high"
           className="h-auto w-auto dark:invert"
           priority
         />

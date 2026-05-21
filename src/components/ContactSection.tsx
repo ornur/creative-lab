@@ -17,8 +17,6 @@ import { Separator } from "@/components/ui/separator";
 export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    phone: "",
     message: "",
   });
 
@@ -28,38 +26,9 @@ export default function ContactSection() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
-
-    // Allow user to easily clear the input
-    if (!val || val === "+") {
-      setFormData((prev) => ({ ...prev, phone: "" }));
-      return;
-    }
-
-    let digits = val.replace(/\D/g, "");
-
-    if (!digits) {
-      setFormData((prev) => ({ ...prev, phone: "+7" }));
-      return;
-    }
-
-    // Normalize to always start with 7
-    if (digits.startsWith("8")) {
-      digits = "7" + digits.slice(1);
-    } else if (!digits.startsWith("7")) {
-      digits = "7" + digits;
-    }
-
-    // Limit to 11 digits (7 + 10 numbers)
-    digits = digits.slice(0, 11);
-
-    setFormData((prev) => ({ ...prev, phone: "+" + digits }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const text = `Сәлеметсіз бе! Менің атым ${formData.name}.\nEmail: ${formData.email}\nТелефон: ${formData.phone}\nХабарлама: ${formData.message}`;
+    const text = `Сәлеметсіз бе! Менің атым ${formData.name}.\nХабарлама: ${formData.message}`;
     const encodedText = encodeURIComponent(text);
     const whatsappUrl = `https://wa.me/77778716409?text=${encodedText}`;
     window.open(whatsappUrl, "_blank");
@@ -138,46 +107,6 @@ export default function ContactSection() {
                     placeholder="Атыңыз"
                     className="border-white/10 bg-white/5 text-white placeholder:text-white/20 focus:border-white/40"
                   />
-                </div>
-
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  <div className="flex flex-col gap-2">
-                    <Label
-                      htmlFor="email"
-                      className="text-xs tracking-widest text-white/60 uppercase"
-                    >
-                      Email
-                    </Label>
-                    <Input
-                      id="email"
-                      required
-                      name="email"
-                      type="email"
-                      onChange={handleChange}
-                      value={formData.email}
-                      placeholder="user@gmail.com"
-                      className="border-white/10 bg-white/5 text-white placeholder:text-white/20 focus:border-white/40"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <Label
-                      htmlFor="phone"
-                      className="text-xs tracking-widest text-white/60 uppercase"
-                    >
-                      Телефон
-                    </Label>
-                    <Input
-                      id="phone"
-                      required
-                      name="phone"
-                      type="tel"
-                      onChange={handlePhoneChange}
-                      value={formData.phone}
-                      maxLength={12}
-                      placeholder="+77771115577"
-                      className="border-white/10 bg-white/5 text-white placeholder:text-white/20 focus:border-white/40"
-                    />
-                  </div>
                 </div>
 
                 <div className="flex flex-col gap-2">

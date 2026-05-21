@@ -1,5 +1,6 @@
 "use client";
 import * as motion from "motion/react-m";
+import { CalendarDays, Clock, MapPin } from "lucide-react";
 import CountUp from "@/components/CountUp";
 import {
   GlassCard,
@@ -9,7 +10,6 @@ import {
   GlassCardDescription,
   GlassCardFooter,
 } from "@/components/ui/glass-card";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
 // Brand palette: orange/white accent
@@ -19,6 +19,24 @@ const features = [
   "Барлық спикерлерді тыңдау",
   "Нетворкинг сессиясы",
   "Сұрақ-жауап форматы",
+];
+
+const eventDetails = [
+  {
+    icon: CalendarDays,
+    label: "Күні",
+    value: "14.06.2026",
+  },
+  {
+    icon: Clock,
+    label: "Уақыты",
+    value: "18:00",
+  },
+  {
+    icon: MapPin,
+    label: "Орны",
+    value: "ORTA Community | Мәңгілік ел, 41/1",
+  },
 ];
 
 export default function PricingSection() {
@@ -62,8 +80,8 @@ export default function PricingSection() {
           <h2 className="font-heading mb-4 text-3xl font-bold tracking-tight text-[#f97736] uppercase md:text-6xl">
             Бағалар
           </h2>
-          <p className="text-base tracking-widest text-white/60 md:text-xl">
-            Инвестицияңыздың құны — өзіңізге деген секіріс
+          <p className="text-xl tracking-widest text-white/60 italic md:text-xl">
+            Инвестицияңыздың құны - өзіңізге деген секіріс
           </p>
         </motion.div>
 
@@ -73,7 +91,7 @@ export default function PricingSection() {
           viewport={{ once: true }}
           whileHover={{ y: -8 }}
           transition={{ type: "spring", stiffness: 80, damping: 18 }}
-          className="relative mx-auto max-w-lg"
+          className="relative mx-auto max-w-4xl"
         >
           {/* Orange glow halo — static CSS, not JS animated */}
           <div
@@ -93,44 +111,74 @@ export default function PricingSection() {
           </Badge> */}
 
           <GlassCard className="relative border-[#f97736]/30 hover:border-[#f97736]/50">
-            <GlassCardHeader className="pt-10 pb-2 text-center">
-              <GlassCardTitle className="font-heading text-xl tracking-widest uppercase">
-                Қатысу билеті
-              </GlassCardTitle>
-              <GlassCardDescription className="text-base text-white/60">
-                Creative Lab-қа толық кіру мүмкіндігі
-              </GlassCardDescription>
+            <GlassCardHeader className="px-6 pt-8 pb-4 md:px-8 md:pt-10">
+              <div className="grid gap-8 md:grid-cols-[1.15fr_0.85fr] md:items-start">
+                <div>
+                  <p className="mb-3 text-xs font-bold tracking-[0.28em] text-white/35 uppercase">
+                    Creative Lab 0.2
+                  </p>
+                  <GlassCardTitle className="font-heading text-2xl leading-tight font-bold text-[#f97736] uppercase md:text-4xl">
+                    Креативті деңгейге бірге шығайық
+                  </GlassCardTitle>
+                  <GlassCardDescription className="mt-4 text-base leading-relaxed text-white/60">
+                    Creative Lab-қа толық кіру мүмкіндігі және 2026 креатив
+                    индустриясына арналған тірі тәжірибе.
+                  </GlassCardDescription>
+                </div>
+
+                <div className="rounded-2xl border border-white/10 bg-[#1f1b1a]/45 p-5 text-center md:text-right">
+                  <p className="mb-3 text-xs font-bold tracking-widest text-white/35 uppercase">
+                    Қатысу билеті
+                  </p>
+                  <div className="flex items-end justify-center gap-2 md:justify-end">
+                    <span className="price-brand text-6xl leading-none font-bold tabular-nums md:text-7xl">
+                      <CountUp
+                        from={10000}
+                        to={19990}
+                        duration={0.3}
+                        separator=" "
+                        delay={0.3}
+                      />
+                    </span>
+                    <span className="price-brand pb-1 text-2xl font-bold">
+                      ₸
+                    </span>
+                  </div>
+                </div>
+              </div>
             </GlassCardHeader>
 
-            <GlassCardContent className="flex flex-col items-center gap-3 py-8">
-              {/* Old price — crossed out */}
-              {/* <span className="text-xl font-bold text-white/40 line-through">
-                19 990 ₸
-              </span> */}
-
-              {/* New price: CountUp with pure CSS gradient — no JS conflict */}
-              <div className="flex items-end gap-2">
-                <span className="price-brand font-heading text-4xl leading-none font-bold tabular-nums md:text-7xl">
-                  <CountUp
-                    from={10000}
-                    to={19990}
-                    duration={0.3}
-                    separator=" "
-                    delay={0.3}
-                  />
-                </span>
-                <span className="price-brand md:pb-1 text-2xl font-bold">₸</span>
+            <GlassCardContent className="px-6 pb-6 md:px-8">
+              <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+                {eventDetails.map((detail, index) => (
+                  <motion.div
+                    key={detail.label}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.08, duration: 0.42 }}
+                    className="flex items-center gap-4 rounded-2xl border border-white/10 bg-[#1f1b1a]/45 p-4"
+                  >
+                    <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-[#f97736]/12 text-[#f97736] ring-1 ring-[#f97736]/30">
+                      <detail.icon className="size-5" />
+                    </span>
+                    <span>
+                      <span className="block text-xs font-bold tracking-widest text-white/35 uppercase">
+                        {detail.label}
+                      </span>
+                      <span className="mt-1 block text-sm leading-snug font-semibold text-white md:text-base">
+                        {detail.value}
+                      </span>
+                    </span>
+                  </motion.div>
+                ))}
               </div>
-
-              {/* <p className="mt-1 text-xs tracking-widest text-white/30 uppercase">
-                Ерте тіркелу бағасы
-              </p> */}
             </GlassCardContent>
 
             <Separator className="bg-white/8" />
 
-            <GlassCardContent className="pt-6 pb-2">
-              <ul className="flex flex-col gap-4">
+            <GlassCardContent className="px-6 pt-6 pb-2 md:px-8">
+              <ul className="grid gap-4 md:grid-cols-3">
                 {features.map((f, i) => (
                   <li
                     key={i}
@@ -157,12 +205,12 @@ export default function PricingSection() {
               </ul>
             </GlassCardContent>
 
-            <GlassCardFooter className="px-6 pt-6 pb-8">
+            <GlassCardFooter className="px-6 pt-6 pb-8 md:px-8">
               <a
                 href="#contact"
                 className="block w-full rounded-xl bg-[#f97736] py-4 text-center text-base font-bold tracking-widest text-[#1f1b1a] uppercase transition-all duration-300 hover:scale-[1.02] hover:bg-white active:scale-95"
               >
-                Орын алу
+                Орын брондау
               </a>
             </GlassCardFooter>
           </GlassCard>

@@ -13,14 +13,14 @@ const benzin = localFont({
     { path: "./font/Benzin-Bold.ttf", weight: "700", style: "normal" },
     { path: "./font/Benzin-ExtraBold.ttf", weight: "800", style: "normal" },
   ],
-  variable: "--font-sans",
+  variable: "--font-benzin",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Creative Lab",
   description:
-    "Creative Lab — креатив индустриясындағы адамдар жиналатын тірі орта",
+    "Creative Lab - креатив индустриясындағы адамдар жиналатын тірі орта",
 };
 
 export default function RootLayout({

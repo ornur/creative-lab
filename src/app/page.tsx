@@ -5,6 +5,7 @@ import BenefitsSection from "@/components/BenefitsSection";
 import SpeakersSection from "@/components/SpeakersSection";
 import PricingSection from "@/components/PricingSection";
 import ContactSection from "@/components/ContactSection";
+import TimelineSection from "@/components/TimelineSection";
 import dynamic from "next/dynamic";
 
 const Prism = dynamic(() => import("@/components/Prism"), { ssr: false });
@@ -26,6 +27,7 @@ export default function Home() {
       <AboutSection />
       <BenefitsSection />
       <SpeakersSection />
+      <TimelineSection />
       <PricingSection />
       <ContactSection />
     </main>
