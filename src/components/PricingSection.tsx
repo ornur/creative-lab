@@ -30,7 +30,7 @@ const eventDetails = [
   {
     icon: Clock,
     label: "Уақыты",
-    value: "18:00",
+    value: "15:00",
   },
   {
     icon: MapPin,
