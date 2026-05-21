@@ -11,6 +11,7 @@ import {
   GlassCardFooter,
 } from "@/components/ui/glass-card";
 import { Separator } from "@/components/ui/separator";
+import { Badge } from "./ui/badge";
 
 // Brand palette: orange/white accent
 // No JS-driven gradient animation to avoid DOM thrashing with CountUp
@@ -40,6 +41,7 @@ const eventDetails = [
 ];
 
 export default function PricingSection() {
+  const date = new Date("2024-06-10") ? "11990" : "15990";
   return (
     <section
       id="pricing"
@@ -68,6 +70,13 @@ export default function PricingSection() {
           );
           animation: brand-shift 6s linear infinite;
         }
+        @media (max-width: 767px), (prefers-reduced-motion: reduce) {
+          .price-brand,
+          .glow-ring {
+            animation: none;
+            will-change: auto;
+          }
+        }
       `}</style>
 
       <div className="mx-auto w-full max-w-4xl">
@@ -78,7 +87,7 @@ export default function PricingSection() {
           className="mb-16 text-center md:mb-20"
         >
           <h2 className="font-heading mb-4 text-3xl font-bold tracking-tight text-[#f97736] uppercase md:text-6xl">
-            Бағалар
+            Бағасы
           </h2>
           <p className="text-xl tracking-widest text-white/60 italic md:text-xl">
             Инвестицияңыздың құны - өзіңізге деген секіріс
@@ -103,12 +112,12 @@ export default function PricingSection() {
           />
 
           {/* Badge OUTSIDE card so overflow:hidden doesn't clip it */}
-          {/* <Badge
+          <Badge
             className="absolute -top-4 -right-4 z-10 rotate-12 border-0 px-3 py-1 text-sm font-bold shadow-lg md:-top-5 md:-right-5"
             style={{ background: "#f97736", color: "#1f1b1a" }}
           >
-            10 Сәуірге дейін!
-          </Badge> */}
+            10 Маусымға дейін!
+          </Badge>
 
           <GlassCard className="relative border-[#f97736]/30 hover:border-[#f97736]/50">
             <GlassCardHeader className="px-6 pt-8 pb-4 md:px-8 md:pt-10">
@@ -133,11 +142,11 @@ export default function PricingSection() {
                   <div className="flex items-end justify-center gap-2 md:justify-end">
                     <span className="price-brand text-6xl leading-none font-bold tabular-nums md:text-7xl">
                       <CountUp
-                        from={10000}
-                        to={19990}
-                        duration={0.3}
+                        from={8000}
+                        to={parseInt(date)}
+                        duration={1.3}
                         separator=" "
-                        delay={0.3}
+                        delay={0.6}
                       />
                     </span>
                     <span className="price-brand pb-1 text-2xl font-bold">

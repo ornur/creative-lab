@@ -7,6 +7,7 @@ import * as motion from "motion/react-m";
 import { AnimatePresence } from "motion/react";
 
 export default function Header() {
+  const date = new Date("2024-06-10") ? "11 990" : "15 990";
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
@@ -16,7 +17,7 @@ export default function Header() {
     { href: "#about", label: "Біз туралы" },
     { href: "#benefits", label: "Пайдасы" },
     { href: "#speakers", label: "Спикерлер" },
-    { href: "#pricing", label: "Бағалар" },
+    { href: "#pricing", label: "Бағасы" },
   ];
 
   return (
@@ -47,6 +48,15 @@ export default function Header() {
       </nav>
 
       <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 text-[14px] font-semibold tracking-wide text-white/70 md:gap-3 md:text-xs">
+          <span className="rounded-full border border-white/15 bg-white/5 px-2.5 py-1 md:px-3">
+            14 Маусым
+          </span>
+          <span className="rounded-full border border-[#f97736]/40 bg-[#f97736]/15 px-2.5 py-1 text-[#f97736] md:px-3">
+            {/* after 10.06 price is 15 990 */}
+            {date} тг
+          </span>
+        </div>
         {/* Desktop CTA */}
         <Button
           asChild

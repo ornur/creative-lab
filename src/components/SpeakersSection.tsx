@@ -1,9 +1,9 @@
 "use client";
 import type { KeyboardEvent } from "react";
 import { useState } from "react";
+import Image from "next/image";
 import * as motion from "motion/react-m";
 import { AnimatePresence } from "motion/react";
-import TiltedCard from "@/components/TiltedCard";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const speakers = [
@@ -104,7 +104,6 @@ export default function SpeakersSection() {
           </motion.div>
         </div>
 
-        {/* Speakers grid with TiltedCard — no grayscale */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 lg:grid-cols-5">
           {speakers.map((speaker, index) => (
             <motion.div
@@ -129,19 +128,16 @@ export default function SpeakersSection() {
                 aria-expanded={activeSpeaker === speaker.id}
                 className="group relative w-full cursor-pointer overflow-hidden rounded-[15px] text-left outline-none focus-visible:ring-3 focus-visible:ring-[#f97736]/70"
               >
-                <TiltedCard
-                  imageSrc={speaker.src}
-                  altText={speaker.name}
-                  captionText="Толығырақ көру"
-                  containerHeight={mobile ? "420px" : "320px"}
-                  containerWidth="100%"
-                  imageHeight={mobile ? "420px" : "320px"}
-                  imageWidth="100%"
-                  rotateAmplitude={mobile ? 0 : 10}
-                  scaleOnHover={mobile ? 1 : 1.05}
-                  showMobileWarning={false}
-                  showTooltip={!mobile}
-                />
+                <div className="relative h-100 w-full overflow-hidden rounded-[15px]">
+                  <Image
+                    src={speaker.src}
+                    alt={speaker.name}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 20vw, (min-width: 768px) 33vw, 100vw"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/30 via-black/5 to-transparent" />
+                </div>
 
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 bg-linear-to-t from-[#1f1b1a]/95 via-[#1f1b1a]/50 to-transparent px-5 pt-20 pb-5">
                   <p className="text-xl font-bold text-white">{speaker.name}</p>

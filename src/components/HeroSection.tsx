@@ -50,9 +50,13 @@ export default function HeroSection() {
                 className="h-full w-full object-cover"
                 src="/video.webm"
                 preload="metadata"
-                muted
                 autoPlay
                 loop
+                muted
+                playsInline
+                onClick={(event) => {
+                  event.currentTarget.muted = !event.currentTarget.muted;
+                }}
               />
             </div>
           </div>
