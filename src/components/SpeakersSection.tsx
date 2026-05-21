@@ -19,7 +19,7 @@ const speakers = [
   {
     id: "makpal",
     src: "/person5.webp",
-    link: "https://www.instagram.com/aimanmenbirge",
+    link: "https://www.instagram.com/minsvel",
     name: "Мақпал Шадай",
     role: "Блог және тұлғалық даму эксперті",
     description:
@@ -37,7 +37,7 @@ const speakers = [
   {
     id: "baurzhan",
     src: "/person2.webp",
-    link: "https://www.instagram.com/abualiomirali",
+    link: "https://www.instagram.com/babur.adilkhan",
     name: "Бауыржан Әділханұлы",
     role: "Tanu AI директоры, сертификатталған Gallup коучы",
     description:
@@ -46,7 +46,7 @@ const speakers = [
   {
     id: "jazira",
     src: "/person3.webp",
-    link: "https://www.instagram.com/esenbekkovich",
+    link: "https://www.instagram.com/abdymarova_zhazira",
     name: "Жазира Әбдімарова",
     role: "Osmar Group негізін қалаушы, кәсіби заңгер",
     description:
