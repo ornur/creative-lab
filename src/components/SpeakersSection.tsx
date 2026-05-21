@@ -18,7 +18,7 @@ const speakers = [
   },
   {
     id: "makpal",
-    src: "/person5.webp",
+    src: "/person3.webp",
     link: "https://www.instagram.com/minsvel",
     name: "Мақпал Шадай",
     role: "Блог және тұлғалық даму эксперті",
@@ -45,7 +45,7 @@ const speakers = [
   },
   {
     id: "jazira",
-    src: "/person3.webp",
+    src: "/person5.webp",
     link: "https://www.instagram.com/abdymarova_zhazira",
     name: "Жазира Әбдімарова",
     role: "Osmar Group негізін қалаушы, кәсіби заңгер",
